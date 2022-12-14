@@ -39,6 +39,9 @@ Set-Service "RtkAudioUniversalService" -StartupType Disabled
 Stop-Service "PIEServiceNew"
 Set-Service "PIEServiceNew" -StartupType Disabled
 
+Stop-Service "AMD Crash Defender Service"
+Set-Service "AMD Crash Defender Service" -StartupType Disabled
+
 
 
 Write-Host "`r`n"
@@ -75,6 +78,7 @@ Disable-PnpDevice -InstanceId (Get-PnpDevice -FriendlyName "Realtek Audio Effect
 Disable-PnpDevice -InstanceId (Get-PnpDevice -FriendlyName "Realtek Audio Universal Service").InstanceID -Confirm:$false
 Disable-PnpDevice -InstanceId (Get-PnpDevice -FriendlyName "Realtek Hardware Support Application").InstanceID -Confirm:$false
 
+Disable-PnpDevice -InstanceId (Get-PnpDevice -FriendlyName "AMD Crash Defender").InstanceID -Confirm:$false
 
 
 Write-Host "`r`n"
